@@ -97,6 +97,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
    vendor/venture/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
    vendor/venture/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+   
+# Prebuilt chromium
+ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+-include prebuilts/chromium/$(TARGET_DEVICE)/chromium_prebuilt.mk
+endif
 
 # Inherit common product build prop overrides
 -include vendor/venture/config/common_versions.mk

@@ -26,27 +26,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/du/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/du/prebuilt/common/bin/50-du.sh:system/addon.d/50-du.sh \
-    vendor/du/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/du/prebuilt/common/etc/backup.conf:system/etc/backup.conf
+    vendor/venture/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/venture/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/venture/prebuilt/common/bin/50-venture.sh:system/addon.d/50-venture.sh \
+    vendor/venture/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
+    vendor/venture/prebuilt/common/etc/backup.conf:system/etc/backup.conf
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
+    vendor/venture/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.local.rc:root/init.du.rc
+    vendor/venture/prebuilt/common/etc/init.local.rc:root/init.venture.rc
 
 # Copy latinime for gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/venture/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/venture/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -54,36 +54,25 @@ PRODUCT_COPY_FILES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
-    vendor/du/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
+    vendor/venture/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
+    vendor/venture/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
 
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/du/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
-    vendor/du/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/venture/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/venture/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/venture/prebuilt/common/bin/sysinit:system/bin/sysinit
 
-# Required packages
+# Packages
 PRODUCT_PACKAGES += \
+    Basic \
     CellBroadcastReceiver \
     Development \
     SpareParts
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    Basic \
-    PhaseBeam
-
-# DSPManager
-PRODUCT_PACKAGES += \
-    DSPManager \
-    libcyanogen-dsp \
-    audio_effects.conf
-
-# Extra Optional packages
-PRODUCT_PACKAGES += \
     LatinIME \
-    BluetoothExt \
-    DashClock
+    BluetoothExt
 
 # Extra tools
 PRODUCT_PACKAGES += \
@@ -98,31 +87,26 @@ PRODUCT_PACKAGES += \
 # easy way to extend to add more packages
 -include vendor/extra/product.mk
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/du/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/venture/overlay/common
 
 # Boot Animation
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/venture/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/du/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+#PRODUCT_COPY_FILES += \
+#   vendor/venture/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+#   vendor/venture/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # Versioning System
 ANDROID_VERSION = 5.0.1
-DU_VERSION = v9.0
-
-ifndef DU_BUILD_TYPE
-    DU_BUILD_TYPE := UNOFFICIAL
-    PLATFORM_VERSION_CODENAME := UNOFFICIAL
-endif
+VENTURE_BUILD = ALPHA3
 
 # Set all versions
-DU_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
-DU_MOD_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
+VENTURE_VERSION := $(TARGET_PRODUCT)-$(VENTURE_BUILD)-$(shell date -u +%Y%m%d)
+VENTURE_MOD_VERSION := $(VENTURE_BUILD)-$(shell date -u +%Y%m%d)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    ro.du.version=$(DU_VERSION) \
-    ro.mod.version=$(DU_BUILD_TYPE)-v9.0 \
+    ro.venture.version=$(VENTURE_VERSION) \
+    ro.mod.version=$(VENTURE_MOD_VERSION) \

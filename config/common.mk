@@ -65,9 +65,7 @@ PRODUCT_COPY_FILES += \
 # Packages
 PRODUCT_PACKAGES += \
     Basic \
-    CellBroadcastReceiver \
-    Development \
-    SpareParts
+    CellBroadcastReceiver
 
 # Optional packages
 PRODUCT_PACKAGES += \

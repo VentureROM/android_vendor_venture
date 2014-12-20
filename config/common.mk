@@ -65,6 +65,7 @@ PRODUCT_COPY_FILES += \
 # Packages
 PRODUCT_PACKAGES += \
     Basic \
+    BusyBox \
     CellBroadcastReceiver
 
 # Optional packages

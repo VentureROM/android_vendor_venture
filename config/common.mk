@@ -94,9 +94,9 @@ PRODUCT_COPY_FILES += \
     vendor/venture/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # SuperSU
-#PRODUCT_COPY_FILES += \
-#   vendor/venture/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-#   vendor/venture/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+PRODUCT_COPY_FILES += \
+   vendor/venture/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+   vendor/venture/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # Versioning System
 ANDROID_VERSION = 5.0.1

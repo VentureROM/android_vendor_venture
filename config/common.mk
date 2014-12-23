@@ -98,15 +98,5 @@ PRODUCT_COPY_FILES += \
    vendor/venture/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
    vendor/venture/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
-# Versioning System
-ANDROID_VERSION = 5.0.2
-VENTURE_BUILD = ALPHA4
-
-# Set all versions
-VENTURE_VERSION := $(TARGET_PRODUCT)-$(VENTURE_BUILD)-$(shell date -u +%Y%m%d)
-VENTURE_MOD_VERSION := $(VENTURE_BUILD)-$(shell date -u +%Y%m%d)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    BUILD_DISPLAY_ID=$(BUILD_ID) \
-    ro.venture.version=$(VENTURE_VERSION) \
-    ro.mod.version=$(VENTURE_MOD_VERSION) \
+# Inherit common product build prop overrides
+-include vendor/venture/config/common_versions.mk

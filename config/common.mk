@@ -66,7 +66,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Basic \
     BusyBox \
-    CellBroadcastReceiver
+    CellBroadcastReceiver \
+    LockClock
 
 # Optional packages
 PRODUCT_PACKAGES += \

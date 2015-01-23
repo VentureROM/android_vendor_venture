@@ -66,8 +66,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Basic \
     BusyBox \
-    CellBroadcastReceiver \
+    CellBroadcastReceiver
+
+# Venture packages
+PRODUCT_PACKAGES += \
+    AudioFX \
+    Eleven \
     LockClock
+#   VentureBox
 
 # Optional packages
 PRODUCT_PACKAGES += \

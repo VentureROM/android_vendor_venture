@@ -9,3 +9,4 @@ add_lunch_combo venture_m8-userdebug
 add_lunch_combo venture_jflte-userdebug
 add_lunch_combo venture_bacon-userdebug
 add_lunch_combo venture_d2lte-userdebug
+add_lunch_combo venture_i9300-userdebug

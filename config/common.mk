@@ -22,6 +22,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.debug.alloc=0
 
+# vroom-vroom the things
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.image-dex2oat-filter=everything \
+    dalvik.vm.dex2oat-filter=everything
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/venture/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
